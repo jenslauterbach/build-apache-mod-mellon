@@ -7,16 +7,19 @@ services:
 
 build-centos7:
   stage: build
+  before_script:
+    - mkdir ./artifacts
+    - mkdir ./artifacts/centos7
   script:
     - docker build -t build-mellon-centos7 ./build/centos7
   after_script:
     - docker run -dit --name build-mellon-centos7 build-mellon-centos7
-    - docker cp build-mellon-centos7:/usr/lib64/httpd/modules/mod_auth_mellon.so .
+    - docker cp build-mellon-centos7:/usr/lib64/httpd/modules/mod_auth_mellon.so ./artifacts/centos7
     - docker stop build-mellon-centos7
   artifacts:
     name:
         mod-mellon-centos7
     paths:
-        - ./mod_auth_mellon.so
+        - ./artifacts
   only:
     - master
