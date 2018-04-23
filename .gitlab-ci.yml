@@ -18,7 +18,7 @@ build-centos7:
     - docker stop build-mellon-centos7
   artifacts:
     name:
-        mod-mellon-centos7
+        apache-mod-mellon
     paths:
         - ./artifacts
   only:
