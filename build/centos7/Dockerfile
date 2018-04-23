@@ -1,5 +1,7 @@
 FROM centos:centos7.4.1708
 
+# Versions can be found on the release page of the project:
+# https://github.com/UNINETT/mod_auth_mellon/releases
 ENV MELLON_VERSION=0.14.0
 
 RUN \
